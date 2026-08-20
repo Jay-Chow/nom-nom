@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: nom-nom
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        model: gpt-4o-mini
