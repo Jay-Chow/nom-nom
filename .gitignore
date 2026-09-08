@@ -1,6 +1,6 @@
 HELP.md
 target/
-.mvn/wrapper/maven-wrapper.jar
+backend/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -34,3 +34,10 @@ build/
 
 ### Environment Variables ###
 .env
+
+### Frontend (Vite/Node) ###
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+npm-debug.log*
