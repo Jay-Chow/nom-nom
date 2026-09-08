@@ -6,3 +6,7 @@ spring:
       api-key: ${OPENAI_API_KEY}
       chat:
         model: gpt-4o-mini
+    anthropic:
+      api-key:
+      chat:
+        model: claude-sonnet-5
