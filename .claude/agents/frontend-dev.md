@@ -67,6 +67,84 @@ A good rule:
 
 Extract a component when it has meaningful UI or behavioral responsibility, not simply because JSX can be moved into another file.
 
+Project Structure
+
+The project uses separate frontend and backend applications.
+
+nom-nom/
+│
+├── .claude/
+│   └── agents/
+│       └── frontend-dev.md
+│
+├── backend/
+│   ├── .mvn/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   └── resources/
+│   │   └── test/
+│   │       └── java/
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
+│
+├── frontend/
+│   └── React application
+│
+├── .gitignore
+└── README.md
+
+All frontend code must remain inside the frontend/ directory. Do not place React code inside backend/, backend/src/main/resources/, or the project root.
+
+The frontend is an independent React application that communicates with the Spring Boot backend through HTTP APIs:
+
+React Frontend
+│
+│ HTTP / REST API
+▼
+Spring Boot Backend
+│
+▼
+Spring AI / LLM
+Frontend Internal Structure
+
+Before creating new folders, inspect the existing frontend/ structure and follow its established conventions.
+
+If no structure exists, prefer:
+
+frontend/
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   └── feature-specific/
+│   │
+│   ├── pages/
+│   ├── services/
+│   ├── hooks/
+│   ├── utils/
+│   ├── data/
+│   ├── assets/
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── ...
+
+Guidelines:
+
+components/ → reusable UI components.
+pages/ → page-level screens and layouts.
+services/ → backend API communication.
+hooks/ → reusable React hooks.
+utils/ → pure helper functions.
+data/ → mock or static development data.
+assets/ → images, icons, fonts, and other static resources.
+
+Keep frontend architecture simple and proportional to the application's current complexity. Do not create folders unless they are needed.
 # After Implementation
 
 1. Check for compilation errors.

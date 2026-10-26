@@ -1,20 +1,21 @@
 package com.recipemaker.nom_nom.controller;
 
+import com.recipemaker.nom_nom.data.RecipeRequest;
+import com.recipemaker.nom_nom.data.RecipeResponse;
+import com.recipemaker.nom_nom.service.ChatService;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/recipes")
 public class AiController {
 
-    private final ChatClient chatClient;
+    ChatService chatService;
 
-    public AiController(@Qualifier("openAiChatModel") ChatModel chatModel) {
-        this.chatClient = ChatClient.builder(chatModel).build();
+    public AiController(ChatService chatService) {
+        this.chatService = chatService;
     }
 
     @GetMapping("/")
@@ -23,15 +24,13 @@ public class AiController {
     }
 
     @GetMapping("/ai/chat")
-    public String chat(
-            @RequestParam String message) {
+    public ResponseEntity<String> chat(@RequestParam String message) {
 
-        return chatClient
-                .prompt()
-                .user(message)
-                .call()
-                .content();
+        return ResponseEntity.ok(chatService.getChatResponse(message));
     }
 
-
+    @PostMapping("/suggestions")
+    public ResponseEntity<RecipeResponse> getSuggestions(@RequestBody RecipeRequest recipeRequest){
+        return ResponseEntity.ok(new RecipeResponse());
+    }
 }
