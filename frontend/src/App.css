@@ -1,0 +1,67 @@
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.ingredientPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 640px;
+}
+
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* DESIGN.md button-primary shape, in the logo orange */
+.generateButton {
+  align-self: flex-start;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--button-text);
+  background: var(--button-bg);
+  border: none;
+  border-radius: var(--rounded-full);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.generateButton:hover:not(:disabled),
+.generateButton:active:not(:disabled) {
+  background: var(--button-bg-pressed);
+}
+
+.generateButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.generateButton:disabled {
+  color: var(--muted);
+  background: var(--hairline);
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 40px 20px 64px;
+    gap: 48px;
+  }
+
+  .generateButton {
+    align-self: stretch;
+    padding: 13px 24px;
+  }
+}

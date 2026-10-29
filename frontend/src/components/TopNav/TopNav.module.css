@@ -1,0 +1,48 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--hairline-soft);
+  transition: background-color 0.2s ease;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  height: 64px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  border-radius: var(--rounded-md);
+}
+
+/* Circular badge; cover fills the circle (the logo has cream margins to spare) */
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--rounded-full);
+}
+
+.wordmark {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 0 20px;
+  }
+}

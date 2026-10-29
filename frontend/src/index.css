@@ -1,0 +1,155 @@
+/*
+ * Warm palette drawn from public/nom-nom.png (burnt orange on cream).
+ * Shape, type and spacing tokens follow DESIGN.md.
+ */
+:root {
+  --accent: #e1460e; /* logo orange: wordmark, spinner, decorative accents */
+  --accent-strong: #a3300a; /* small accent text on light surfaces */
+
+  /* Logo orange, deepened slightly so the white label passes 4.5:1 */
+  --button-bg: #d4410b;
+  --button-bg-pressed: #b33708;
+  --button-text: #ffffff;
+  --on-dark: #ffffff;
+
+  /* Recipe card tones (all pass 4.5:1 with white text) */
+  --card-orange: #d4410b;
+  --card-amber: #a8650a;
+  --card-terracotta: #a8462f;
+  --card-olive: #6b6a2a;
+
+  --chip-bg: #f9e1d4;
+  --chip-border: #f0c3ab;
+  --chip-text: #a3300a;
+
+  --canvas: #f4f0ea; /* logo background cream */
+  --surface: #fbf8f3;
+  --surface-soft: #ece6dc;
+  --hairline: #e3dbcf;
+  --hairline-soft: #e9e2d7;
+
+  --ink: #2a1a12;
+  --charcoal: #3b2b22;
+  --slate: #5c4a3f;
+  --steel: #6e5e53;
+  --stone: #9a8a7e;
+  --muted: #b7aa9e;
+
+  --error: #b42318;
+
+  --focus-ring: var(--accent-strong);
+
+  --shadow-subtle: rgba(60, 30, 10, 0.05) 0px 1px 2px 0px;
+
+  --rounded-md: 8px;
+  --rounded-xl: 16px;
+  --rounded-hero: 32px;
+  --rounded-full: 9999px;
+
+  --font-sans: 'DM Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --accent: #f0612a;
+  --accent-strong: #ff9a6b;
+
+  --chip-bg: color-mix(in srgb, #e1460e 18%, #17110d);
+  --chip-border: color-mix(in srgb, #e1460e 40%, #17110d);
+  --chip-text: #ffb08a;
+
+  --canvas: #17110d;
+  --surface: #221913;
+  --surface-soft: #1c1510;
+  --hairline: #3a2c23;
+  --hairline-soft: #2d221b;
+
+  --ink: #f6efe7;
+  --charcoal: #e8ddd2;
+  --slate: #c7b8aa;
+  --steel: #b0a092;
+  --stone: #8f7f72;
+  --muted: #6b5c51;
+
+  --error: #f97066;
+
+  --shadow-subtle: none;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}

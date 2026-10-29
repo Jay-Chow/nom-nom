@@ -1,0 +1,27 @@
+/* DESIGN.md button-icon-circular */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--accent-strong);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--rounded-full);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.toggle:hover {
+  background: var(--chip-bg);
+}
+
+@media (max-width: 767px) {
+  .toggle {
+    width: 44px;
+    height: 44px;
+  }
+}

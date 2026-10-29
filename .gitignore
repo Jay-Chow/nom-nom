@@ -32,8 +32,13 @@ build/
 ### VS Code ###
 .vscode/
 
-### Environment Variables ###
+### Environment Variables / secrets ###
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+.DESIGN.md
 
 ### Frontend (Vite/Node) ###
 frontend/node_modules/

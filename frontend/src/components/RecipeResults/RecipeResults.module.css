@@ -1,0 +1,80 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 64px 24px;
+  color: var(--steel);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid var(--hairline);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 1.6s;
+  }
+}
+
+.error {
+  padding: 24px;
+  border: 1px solid var(--error);
+  background: color-mix(in srgb, var(--error) 6%, var(--canvas));
+  border-radius: var(--rounded-xl);
+}
+
+.errorTitle {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.errorMessage {
+  color: var(--slate);
+}
+
+.empty {
+  color: var(--steel);
+  padding: 32px 0;
+}
+
+.idle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 32px 0 8px;
+  border-top: 1px solid var(--hairline);
+}
+
+.idleEyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.idleText {
+  color: var(--steel);
+  max-width: 46ch;
+  line-height: 1.6;
+}
